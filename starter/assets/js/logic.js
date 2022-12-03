@@ -1,0 +1,1 @@
+var currentQuestionIndex = 0;
