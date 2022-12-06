@@ -12,12 +12,12 @@ var questions = [
     },
     {
         main: 'JavaScript allows hoisting of....?',
-        choicesArr: ['variables', 'Function definition', 'Function expression', 'None of the above'],
+        choicesArr: ['Variables', 'Function definition', 'Function expression', 'None of the above'],
         answer: 'Function definition'
     },
     {
         main: 'Which tag inserts JavaScript into an HTML page?',
-        choicesArr: ['JS tag', 'JavaScript tag', 'Script Tag', 'Insert Tag'],
+        choicesArr: ['JS tag', 'JavaScript tag', 'Script tag', 'Insert tag'],
         answer: 'Script tag'
     },
     {
