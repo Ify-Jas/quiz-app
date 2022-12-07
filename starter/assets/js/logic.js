@@ -7,19 +7,24 @@ var end = document.getElementById('end-screen');
 var score = document.getElementById('highscores');
 var submitBtn = document.getElementById('submit');
 
+var time = 40;
+
+    
 
 
 btn.addEventListener('click', function() {
     questionWrap.classList.remove('hide');
-    timer.innerText = 40;
-    runTimer == true;
+    timer.innerText = time;
+    
+    //runTimer == true;
     var runTimer = setInterval(function(){
-        timer.innerText--;  
-        if (timer.innerText <= 0 || currentQuestionIndex > 4) {
+        time--;  
+        timer.innerText = time;
+        if (time <= 0 || currentQuestionIndex > 4) {
             clearInterval(runTimer);
         }
     }, 1000);
-    
+   
     
 
 });
@@ -67,31 +72,35 @@ questionWrap.addEventListener('click', function(event) {
       
 }); quiz();
 
-function submit(){
-    submitBtn.addEventListener('click', finish);
-    
-    
-    
 
 
-}
+
+
+submitBtn.addEventListener('click', finish);
+
+
+    
+
 
 function finish () {
-    var finalScore = document.getElementById('final-score');
-    var highscores = document.getElementById('highscores');
-    var initials = document.getElementById('initials');
-    finalScore.value = end.value;
-    initials.innerHTML = initials.value;
-    highscores.innerHTML = finalScore.value;
-
+     //console.log(time);
+    var initEl = document.getElementById('initials');
+    var init = initEl.value;
+    console.log(init);
+    var userScore = {
+        username: init,
+        score: time
     
-
+    };
+    localStorage.setItem('player', JSON.stringify(userScore));
+    var highscore = document.getElementById('highscores');
+    var getHighScore = JSON.parse(localStorage.getItem('userScore'));
+    highscore.innerHTML = getHighScore;
+    
     
 }
 
-
-
-
+//activity 26, module 4.
 
 
 
