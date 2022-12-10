@@ -16,10 +16,10 @@ btn.addEventListener('click', function() {
     questionWrap.classList.remove('hide');
     timer.innerText = time;
     
-    //runTimer == true;
     var runTimer = setInterval(function(){
-        time--;  
-        timer.innerText = time;
+        time--;
+        timer.innerText = time;  
+    
         if (time <= 0 || currentQuestionIndex > 4) {
             clearInterval(runTimer);
         }
@@ -51,12 +51,13 @@ questionWrap.addEventListener('click', function(event) {
     currentQuestionIndex++;
     if(currentQuestionIndex > 4) {
         end.classList.remove('hide');
-        submit();
+       
     }  
     var audioCorrect = new Audio('./assets/sfx/correct.wav');
     var audioIncorrect = new Audio('./assets/sfx/incorrect.wav');
     if(result !== answer) {
-        timer.innerText -=10;
+        timer.innerText-=10;
+        
         audioIncorrect.play();
         quiz();
        
@@ -79,35 +80,39 @@ questionWrap.addEventListener('click', function(event) {
 submitBtn.addEventListener('click', finish);
 
 
-    
+var initEl = document.getElementById('initials');
+var highscore = document.getElementById('highscores');
+var init = initEl.value;
 
 
 function finish () {
-     //console.log(time);
-    var initEl = document.getElementById('initials');
-    var init = initEl.value;
-    console.log(init);
+    // var initEl = document.getElementById('initials');
+    // var highscore = document.getElementById('highscores');
+    //var init = initEl.value;
     var userScore = {
         username: init,
         score: time
     
     };
     localStorage.setItem('player', JSON.stringify(userScore));
-    var highscore = document.getElementById('highscores');
-    var getHighScore = JSON.parse(localStorage.getItem('userScore'));
-    highscore.innerHTML = getHighScore;
+   
+
+
+
+    
+    
+    var play = [];
+    play.push(userScore);
+    
+    
+    for (var i=0; i< play.length; i++) { 
+       highscore.innerHTML += `<li>${play[i].userScore.username} --------- ${play[i].userScore.score}</l1>`
+    }
     
     
 }
 
-//activity 26, module 4.
 
-
-
-
-
- 
- 
 
 
 
