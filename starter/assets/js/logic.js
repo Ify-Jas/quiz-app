@@ -82,13 +82,11 @@ submitBtn.addEventListener('click', finish);
 
 var initEl = document.getElementById('initials');
 var highscore = document.getElementById('highscores');
-var init = initEl.value;
+
 
 
 function finish () {
-    // var initEl = document.getElementById('initials');
-    // var highscore = document.getElementById('highscores');
-    //var init = initEl.value;
+    var init = initEl.value;
     var userScore = {
         username: init,
         score: time
@@ -96,10 +94,6 @@ function finish () {
     };
     localStorage.setItem('player', JSON.stringify(userScore));
    
-
-
-
-    
     
     var play = [];
     play.push(userScore);
